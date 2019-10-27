@@ -152,28 +152,69 @@ print(andar(local : i, passos : passos))*/
 
 /*1. Adicione um método ao nosso PadariaDelegate para o Supermercado determinar o tamanho do Bolo e se o
 tem ou não chocolate.
-p r o t o c ol Pa da riaD el ega t e {
-func boloFoiA s sado (_ bolo : Bolo )
-// novos metodos
+
+struct Bolo {
+    var tamanho:Int = 5
+    var temChocolate:Bool = false
 }
-c l a s s Pada ria
+
+class PadariaConvencional
 {
-var d el e g a t e : Pa da riaD el ega t e ?
-func f a z e r B ol o ( )
+    func fazerBolo()
+    {
+        var bolo = Bolo()
+        bolo.tamanho = 2
+        bolo.temChocolate = true
+    }
+}
+
+
+protocol PadariaDelegate {
+    func boloFoiAssado(_ bolo: Bolo)
+    func pedidoTamanhoDoBolo() -> Int
+}
+
+class PadariaDentroDoMercado
 {
-var bolo = Bolo ( )
-bolo . tamanho = 2
-bolo . temChocolate = t r u e
-d e l e g a t e ? . boloFoiA s sado ( bolo )
+    var delegate:PadariaDelegate?
+    
+    func fazerBolo()
+    {
+        var bolo = Bolo()
+        bolo.tamanho = 2
+        bolo.temChocolate = true
+
+        delegate?.boloFoiAssado(bolo)
+    }
 }
-}
-c l a s s Supermercado : Pa da riaD el ega t e
+
+class Supermercado: PadariaDelegate
 {
-func boloFoiA s sado (_ bolo : Bolo ) {
-p r i n t ( "Eba ! ␣Um␣ bolo ␣ f r e s q ui n h o ␣ f o i ␣ a s sado ␣ ago ra ! ␣O␣tamanho␣ ␣ \ ( bolo . tamanho ) " )
+    func pedidoTamanhoDoBolo() -> Int {
+        return 15
+    }
+    
+    func boloFoiAssado(_ bolo: Bolo) {
+        print("Eba! Um bolo fresquinho foi assado agora! O tamanho é \(bolo.tamanho)")
+    }
 }
+
+
+let supermercado = Supermercado()
+
+let padaria = PadariaDentroDoMercado()
+padaria.delegate = supermercado
+
+padaria.fazerBolo()
+*/
+
+/*extension String{
+    func miguxes(){
+        var palavra = "olá, eu estudo na fiap"
+        var result = palavra.split(separator: " ").map { String($0.reversed())}.joined(separator: " ")
+        print(result) // olleH dnuorgyalp
+
+       
+    
 }
-l e t supermercado = Supermercado ( )
-l e t pa da ria = Pada ria ( )
-pa da ria . d el e g a t e = supermercado
-pa da ria . f a z e r B ol o ( )*/
+print(miguxes())*/
