@@ -208,13 +208,44 @@ padaria.delegate = supermercado
 padaria.fazerBolo()
 */
 
+//========================================================================================================
+
+/*2. Escreva uma Extension para a classe String que adicione o método miguxes para uma String. O resultado
+será a sua string com maiusculas e minusculas alternadas.
+let minhaString = "Olá, eu estudo na FIAP"
+Saída:
+let saida = minhaString.miguxes()
+"OlÁ eU eStUdO nA fIaP"*/
+
+//INCOMPLETO
+
 /*extension String{
     func miguxes(){
         var palavra = "olá, eu estudo na fiap"
         var result = palavra.split(separator: " ").map { String($0.reversed())}.joined(separator: " ")
         print(result) // olleH dnuorgyalp
-
-       
-    
 }
 print(miguxes())*/
+
+
+//3. Refatore a classe Carro utilizando Protocolos. Quais métodos e abstrações é possível fazer?
+class Carro {
+var rodas: Int
+var estaEmMovimento: Bool
+var velocidadeMaxima: Int
+var capacidadeDeGasolina: Int
+init(rodas: Int = 4,
+estaEmMovimento: Bool = false,
+velocidadeMaxima: Int = 100,
+capacidadeDeGasolina: Int = 100)
+{
+self.rodas = rodas
+self.estaEmMovimento = estaEmMovimento
+self.velocidadeMaxima = velocidadeMaxima
+self.capacidadeDeGasolina = capacidadeDeGasolina
+}
+func darPartida(){ }
+func parar(){}
+func estacionar() {}
+func abastecer(){ }
+}
