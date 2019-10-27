@@ -1,0 +1,179 @@
+import Foundation
+
+//----------------------------------------Lista 1:--------------------------------------------------------------
+
+/*1. Escreva uma função em Swift para calcular a soma de todos items de dois Arrays de inteiros. Se a quantidade
+de elementos for diferente, retorne -1, se forem iguais retorne a soma de todos items.
+
+
+func somaValor(){
+    var num1 = [2,2]
+    var num2 = [2,2]
+    var soma = [0,0]    
+
+    if(num1.count != num2.count){
+       return print(-1)
+    }else{
+        for i in 0...3{
+        soma[i] = num1[i] + num2[i]
+       return print(soma[i])
+        }
+    }
+}
+print(somaValor())
+*/
+
+//==========================================================================================================
+
+/*2. Escreva uma função em Swift que aceite dois valores inteiros e retorne true se um deles for 20 ou se a soma
+deles for 20.
+
+func valores(){
+    var num1 = 10
+    var num2 = 10
+
+    if(num1 == 20 || num2 == 20 || num1 + num2 == 20){
+       (print(true))
+    }else{
+        print(false)
+    }
+} 
+print(valores())*/
+
+//=========================================================================================================
+
+/*3. Escreva uma função em Swift para adicionar "FIAP"na frente de uma determinada string. No entanto, se a
+string já começar com "FIAP", retorne a string sem modifica-la
+
+func modifica(){
+    var palavra = "Olá"
+    let adiciona = "FIAP"
+
+    if(palavra != adiciona){
+        print(palavra + "\t" + adiciona)
+    }else{
+        print(adiciona)
+    }
+}
+print(modifica())*/
+
+//==============================================================================================================
+
+/*4. Escreva uma função em Swift para adicionar o último caractere (string dada) na frente e atrás de uma string
+dada. O comprimento da string especificada deve ser 1 ou mais.
+Entrada:
+FIAP
+Saída:
+PFIAPP
+
+func adiciona(){
+    var palavra = "FIAP"
+    var adiciona = palavra.last
+
+    palavra.insert(contentsOf:String(adiciona!),at: palavra.startIndex)
+    palavra.insert(contentsOf:String(adiciona!),at: palavra.endIndex)
+   
+    print(palavra)
+    
+}
+print(adiciona())*/
+
+//===================================================================================================
+
+/*5. Escreva uma função em Swift que aceite dois valores inteiros e teste retornando true se ambos estiverem no
+intervalo 20..30 ou se ambos estiverem no intervalo 30..40, caso contrario, retorne false. Obs: para solução
+utilize o objeto Range
+
+
+func retornar(){
+    var num1 = 20
+    var num2 = 30
+    
+    if(20...30).contains(num1) && (20...30).contains(num2){
+        print(true)
+    }else if(30...40).contains(num1) && (30...40).contains(num2){
+        print(true)
+    }else{
+        print(false)
+    }    
+}
+print(retornar())*/
+
+//====================================================================================================
+
+/*6. Você está trabalhando em um jogo em que seu personagem está explorando um mapa semelhante a uma grade.
+Você obtém a localização original do personagem e os passos que ele irá tomar. Um passo .up irá aumentar
+a coordenada x em 1. Um passo .down irá diminuir a coordenada x em 1. Um passo .right irá aumentar a
+coordenada y em 1. Um passo .left irá diminuir a coordenada y em 1. Escreva uma função que imprima o local
+final do personagem após todos os passos terem sido dados.
+enum Direction {
+case up
+case down
+case left
+case right
+}
+Exemplo:
+var localizacao = (x: 0, y: 0)
+var passos: [Direction] = [.up, .up, .left, .down, .left]
+Saida: (-2, 1)*
+
+
+typealias Coordinate =  (x: Int, y: Int)
+
+enum Direcao{
+    
+    case cima
+    case baixo
+    case esquerda
+    case direita
+}
+
+func andar(local: Coordinate, passos : [Direcao]) -> Coordinate {
+   
+    var local = local;
+    
+    for i in passos {
+        switch i {
+        case Direcao.cima : local.x += 1
+        case Direcao.baixo : local.x -= 1
+        case Direcao.esquerda : local.y -= 1
+        case Direcao.direita : local.y += 1
+        }
+    }
+    
+    return local
+}
+    let i = (x : 1,y : 1)
+    let passos : [Direcao]  = [.cima, .cima, .esquerda, .baixo, .esquerda]
+
+print(andar(local : i, passos : passos))*/
+
+//----------------------------------------Lista 2:--------------------------------------------------------------
+
+/*1. Adicione um método ao nosso PadariaDelegate para o Supermercado determinar o tamanho do Bolo e se o
+tem ou não chocolate.
+p r o t o c ol Pa da riaD el ega t e {
+func boloFoiA s sado (_ bolo : Bolo )
+// novos metodos
+}
+c l a s s Pada ria
+{
+var d el e g a t e : Pa da riaD el ega t e ?
+func f a z e r B ol o ( )
+{
+var bolo = Bolo ( )
+bolo . tamanho = 2
+bolo . temChocolate = t r u e
+d e l e g a t e ? . boloFoiA s sado ( bolo )
+}
+}
+c l a s s Supermercado : Pa da riaD el ega t e
+{
+func boloFoiA s sado (_ bolo : Bolo ) {
+p r i n t ( "Eba ! ␣Um␣ bolo ␣ f r e s q ui n h o ␣ f o i ␣ a s sado ␣ ago ra ! ␣O␣tamanho␣ ␣ \ ( bolo . tamanho ) " )
+}
+}
+l e t supermercado = Supermercado ( )
+l e t pa da ria = Pada ria ( )
+pa da ria . d el e g a t e = supermercado
+pa da ria . f a z e r B ol o ( )*/
